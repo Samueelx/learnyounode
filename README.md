@@ -49,3 +49,14 @@ All objects that emit events are instances of the  `EventEmitter` class, this ap
  - The first argument will be `process.execPath` which is a property that returns the absolute pathname of the executable that started the Node.js process.
  - The second argument will be the path to the javascript file being executed.
  - The remaining elements will be any additional command-line arguments.
+
+ ### File System
+
+ The `node:fs` module enables interacting with the file system. To perform a file system operation you are going to need this `fs` module from the node core library.
+
+ All file system operations have synchronous(blocking), callback and promise-based forms.
+ 1. **Promise-based operations** - These return a promise that is fulfilled when the async operation is complete.
+2. The **callback form** - These take a completion callback function as their last argument and invoke the operation asynchronously. The arguments passed to the completion callback depend on the method, but the *first argument* is always reserved for an exception. If the operation is completed successfully, then the first argument is null or undefined. 
+3. **Synchronous APIs** - The synchronous APIs perform all operations synchronously, blocking the event loop until the operation completes or fails. The synchronous(blocking) filesystem methods in the fs module end with `Sync`.
+
+**NOTE:** The callback-based versions of the `node:fs` module APIs perform better(both in terms of execution time and memory allocation) compared to the promise-based operations.
